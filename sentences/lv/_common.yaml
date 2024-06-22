@@ -7,6 +7,11 @@ responses:
     no_device_class_in_area: "Zonā {{ area }} nav {{ device_class }}"
     no_entity: "Nav ierīces vai entītijas ar nosaukumu {{ entity }}"
     handle_error: "Apstrādājot nolūku, radās neparedzēta kļūda"
+
+    # Errors for timers
+    timer_not_found: "Atvaino, es nevarēju atrast šo taimeri"
+    multiple_timers_matched: "Atvaino, es nevaru izmainīt vairākus taimerus reizē"
+    no_timer_support: "Atvaino, taimeri šajā ierīcē nav atbalstīti"
 lists:
   color:
     values:
@@ -44,6 +49,24 @@ lists:
         out: "celsius"
       - in: "f | fārenheita | pēc fārenheita"
         out: "fahrenheit"
+
+  timer_seconds:
+    range:
+      from: 1
+      to: 100
+  timer_minutes:
+    range:
+      from: 1
+      to: 100
+  timer_hours:
+    range:
+      from: 1
+      to: 100
+  timer_name:
+    wildcard: true
+  timer_command:
+    wildcard: true
+
 expansion_rules:
   name: "{name}"
   area: "{area}"
@@ -54,10 +77,24 @@ expansion_rules:
   open: "(atver | pacel)"
   brightness: "{brightness}[%| procent(i|iem|u|us)]"
   temperature: "{temperature}[°| grād(s|u|i|iem)] [pēc] [{temperature_unit}]"
+
+  # Timers
+  timer_set: "([uz](sāc|liec)[iet]|izveido[jiet])"
+  timer_cancel: "(atcel[iet]|[ap]stopē[jiet]|[ap]stādini[et])"
+  timer_duration_seconds: "{timer_seconds:seconds} sekund(i|e[s]|ēm)"
+  timer_duration_minutes: "{timer_minutes:minutes} minūt(i|e[s]|ēm)[ [un ]{timer_seconds:seconds} sekund(i|e[s]|ēm)]"
+  timer_duration_hours: "{timer_hours:hours} stund(u|a[s]|ām)[ [un ]{timer_minutes:minutes} minūt(i|e[s]|ēm)][ [un ]{timer_seconds:seconds} sekund(i|e[s]|ēm)]"
+  timer_duration: "<timer_duration_seconds>|<timer_duration_minutes>|<timer_duration_hours>"
+
+  timer_start_seconds: "{timer_seconds:start_seconds} sekund(i|e[s]|ēm)"
+  timer_start_minutes: "{timer_minutes:start_minutes} minūt(i|e[s]|ēm)[ [un ]{timer_seconds:start_seconds} sekund(i|e[s]|ēm)]"
+  timer_start_hours: "{timer_hours:start_hours} stund(u|a[s]|ām)[ [un ]{timer_minutes:start_minutes} minūt(i|e[s]|ēm)][ [un ]{timer_seconds:start_seconds} sekund(i|e[s]|ēm)]"
+  timer_start: "<timer_start_seconds>|<timer_start_minutes>|<timer_start_hours>"
+
 skip_words:
   - "lūdzu"
   - "paldies"
-  - "[vai] vari"
+  - "[vai] [(tu|jūs)] var(i|at|iet)"
   - "ir"
   - "ārā"
   - "vaļā"

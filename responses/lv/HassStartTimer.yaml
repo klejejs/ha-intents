@@ -1,0 +1,7 @@
+---
+language: lv
+responses:
+  intents:
+    HassStartTimer:
+      default: "Taimeris ir uzlikts"
+      command: "Komanda saņemta"

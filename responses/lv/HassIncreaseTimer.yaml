@@ -1,0 +1,6 @@
+---
+language: lv
+responses:
+  intents:
+    HassIncreaseTimer:
+      default: "Taimera laiks ir palielināts"

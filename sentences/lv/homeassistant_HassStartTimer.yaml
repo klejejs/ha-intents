@@ -1,0 +1,23 @@
+---
+language: "lv"
+intents:
+  HassStartTimer:
+    data:
+      - sentences:
+          - "<timer_duration> taimeris"
+          - "taimeri[s] uz <timer_duration>"
+          - "taimeri[s] ar (nosaukumu|vārdu) {timer_name:name} uz <timer_duration>"
+          - "<timer_duration> taimeris ar (nosaukumu|vārdu) {timer_name:name}"
+          - "taimeri[s] uz <timer_duration> ar (nosaukumu|vārdu) {timer_name:name}"
+          - "<timer_set> <timer_duration> taimeri[s]"
+          - "<timer_set> taimeri uz <timer_duration>"
+          - "<timer_set> <timer_duration> taimeri ar (nosaukumu|vārdu) {timer_name:name}"
+          - "<timer_set> taimeri ar (nosaukumu|vārdu) {timer_name:name} uz <timer_duration>"
+          - "<timer_set> taimeri uz <timer_duration> ar (nosaukumu|vārdu) {timer_name:name}"
+        requires_context:
+          area:
+            slot: false
+      - sentences:
+          - "{timer_command:conversation_command} pēc <timer_duration>"
+          - "pēc <timer_duration> {timer_command:conversation_command}"
+        response: command

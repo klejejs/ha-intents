@@ -1,0 +1,6 @@
+---
+language: lv
+responses:
+  intents:
+    HassUnpauseTimer:
+      default: "Taimeris ir turpināts"

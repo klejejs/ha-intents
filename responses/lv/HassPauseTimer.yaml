@@ -1,0 +1,6 @@
+---
+language: lv
+responses:
+  intents:
+    HassPauseTimer:
+      default: "Taimeris ir apturēts"

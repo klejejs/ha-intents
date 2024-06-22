@@ -1,0 +1,13 @@
+---
+language: lv
+intents:
+  HassCancelTimer:
+    data:
+      - sentences:
+          - "<timer_cancel> [manu] taimeri"
+          - "<timer_cancel> [manu] <timer_start> taimeri"
+          - "<timer_cancel> [manu] taimeri [kas (uzlikts|uzstādīts)] uz <timer_start>"
+          - "<timer_cancel> [manu] {area} taimeri"
+          - "<timer_cancel> [manu] taimeri <area>"
+          - "<timer_cancel> [manu] {timer_name:name} taimeri"
+          - "<timer_cancel> [manu] taimeri ar nosaukumu {timer_name:name}"
