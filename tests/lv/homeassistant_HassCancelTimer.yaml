@@ -1,0 +1,41 @@
+---
+language: lv
+tests:
+  - sentences:
+      - "atcel manu taimeri"
+      - "apstādini taimeri"
+      - "atcel taimeri"
+    intent:
+      name: HassCancelTimer
+    response: Taimeris ir atcelts
+
+  - sentences:
+      - "atcel 5 minūšu taimeri"
+      - "apstādini taimeri uz 5 minūtēm"
+      - "atcel taimeri kas uzlikts uz 5 minūtēm"
+    intent:
+      name: HassCancelTimer
+      slots:
+        start_minutes: 5
+    response: Taimeirs ir atcelts
+
+  - sentences:
+      - "atcel pica taimeri"
+      - "apstādini taimeri ar nosaukumu pica"
+      - "apstopē pica taimeri"
+    intent:
+      name: HassCancelTimer
+      slots:
+        name:
+          - "pica "
+          - "pica"
+    response: Taimeirs ir atcelts
+
+  - sentences:
+      - "atcel virtuve taimeri"
+      - "atcel taimeri virtuve"
+    intent:
+      name: HassCancelTimer
+      slots:
+        area: Virtuve
+    response: Taimeirs ir atcelts
